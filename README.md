@@ -23,3 +23,9 @@ Modifier `worker.js` (le HTML est une chaîne JSON sur la ligne `const HTML = ..
 - Onglet « LCA » (`#lca` = cours, `#lca/fichiers` = fichiers) : cours modifiable façon Word (Poppins 9, photos, tableaux, documents joints 📎) et fichiers en 4 catégories (À faire annales / À faire TD / Fait annales / Fait TD), dossiers, déplacement, commentaire par dossier ou fichier hors dossier.
 - Données : IndexedDB (clé `lca`) + `GET/PUT /api/lca` (KV `lca`, version `lcarev`, sauvegarde quotidienne `lcabackup-AAAA-MM-JJ` 30 j), fusion élément par élément. Cours initial : `lca-seed.txt` (Word « LCA cours »), images `lca-seed-img.txt` (`lcaseed1`, `lcaseed2`).
 - Fichiers : `PUT/GET/DELETE /api/file/<id>` (KV `file:<id>`, 24 Mo max) ; photos réduites à 2000 px (WebP/JPEG 0,72), autres fichiers en gzip si gain.
+
+## Sauvegarde
+- Onglet « Sauvegarde » (`#sauvegarde`, cinquième `<script>`, objet `window.SV`) : fichiers fabriqués dans l'appli, à la demande, puis Télécharger ou Enregistrer / Partager (iPad).
+- Excel `.xlsx` : onglet « Calendrier » (même présentation que le classeur « Révisions générales » : semaines, matière + cours par créneau, ✓ fait, retards en rouge, dimanches, révision du soir) et onglet « Items » (tours, passages faits/prévus, dernier/prochain passage, à revoir avant le, résumé oui/non, cours ajoutés à la main).
+- Word `.docx` : tous les résumés (par matière, titre « n° — chapitre » au-dessus de chacun, Poppins 8) et cours LCA (Poppins 9). Photos converties en JPEG, tableaux, couleurs et surlignages conservés.
+- Avant export : synchro du planning (`EDN.syncNow`), des résumés (`RS.data`) et du LCA (`LCA.data`).
