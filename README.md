@@ -29,3 +29,8 @@ Modifier `worker.js` (le HTML est une chaîne JSON sur la ligne `const HTML = ..
 - Excel `.xlsx` : onglet « Calendrier » (même présentation que le classeur « Révisions générales » : semaines, matière + cours par créneau, ✓ fait, retards en rouge, dimanches, révision du soir) et onglet « Items » (tours, passages faits/prévus, dernier/prochain passage, à revoir avant le, résumé oui/non, cours ajoutés à la main).
 - Word `.docx` : tous les résumés (par matière, titre « n° — chapitre » au-dessus de chacun, Poppins 8) et cours LCA (Poppins 9). Photos converties en JPEG, tableaux, couleurs et surlignages conservés.
 - Avant export : synchro du planning (`EDN.syncNow`), des résumés (`RS.data`) et du LCA (`LCA.data`).
+
+## Commentaire du jour
+- Zone de texte libre « Commentaire » à la fin de chaque journée, dans Jour (sous les créneaux) et dans Planning (sous la révision du soir). Même note aux deux endroits.
+- Stockée dans l'état du planning (`st.N = {'AAAA-MM-JJ': texte}`), donc synchronisée avec `/api/state`. Enregistrement automatique (0,8 s après la frappe, ou en quittant la zone). Conservée par Annuler, Régénérer et Réinitialiser.
+- Export Excel : ligne « 📝 » sous la révision du soir de chaque jour (blocs de 17 lignes par semaine).
