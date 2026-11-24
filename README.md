@@ -18,3 +18,8 @@ Modifier `worker.js` (le HTML est une chaîne JSON sur la ligne `const HTML = ..
 - Données : IndexedDB locale (clé `rs`) + `GET/PUT /api/rs` (document JSON stocké tel quel dans la clé KV `rs`, version dans `rsrev`, sauvegarde quotidienne `rsbackup-AAAA-MM-JJ` 30 jours). Fusion chapitre par chapitre dans l'appli (le plus récent gagne) ; `PUT` refusé (409) si la version de base n'est plus la bonne.
 - Contenu initial : `resumes-seed.txt` (résumés importés du Word « Résumé EDN2027 », texte et surlignages inchangés) servi tant que rien n'a été modifié ; images initiales dans `resumes-seed-img.txt` (`rsseed01`…).
 - Accès depuis les créneaux (Jour, Planning), la liste des Items et leurs fiches : bouton livre.
+
+## LCA
+- Onglet « LCA » (`#lca` = cours, `#lca/fichiers` = fichiers) : cours modifiable façon Word (Poppins 9, photos, tableaux, documents joints 📎) et fichiers en 4 catégories (À faire annales / À faire TD / Fait annales / Fait TD), dossiers, déplacement, commentaire par dossier ou fichier hors dossier.
+- Données : IndexedDB (clé `lca`) + `GET/PUT /api/lca` (KV `lca`, version `lcarev`, sauvegarde quotidienne `lcabackup-AAAA-MM-JJ` 30 j), fusion élément par élément. Cours initial : `lca-seed.txt` (Word « LCA cours »), images `lca-seed-img.txt` (`lcaseed1`, `lcaseed2`).
+- Fichiers : `PUT/GET/DELETE /api/file/<id>` (KV `file:<id>`, 24 Mo max) ; photos réduites à 2000 px (WebP/JPEG 0,72), autres fichiers en gzip si gain.
