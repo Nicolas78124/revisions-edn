@@ -1,0 +1,13 @@
+name = "revisions-edn"
+main = "worker.js"
+compatibility_date = "2026-11-24"
+workers_dev = true
+
+[observability]
+enabled = true
+
+[[kv_namespaces]]
+binding = "DATA"
+id = "320273ff18124f53ae80766357f22510"
+
+# Le secret SYNC_KEY est défini dans Cloudflare (Paramètres → Variables et secrets) et n'est pas dans ce dépôt.
