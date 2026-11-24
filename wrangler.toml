@@ -3,6 +3,10 @@ main = "worker.js"
 compatibility_date = "2026-11-24"
 workers_dev = true
 
+# Visite automatique du site tous les 3 jours à 4 h 17 (UTC), en lecture seule
+[triggers]
+crons = ["17 4 */3 * *"]
+
 [observability]
 enabled = true
 
