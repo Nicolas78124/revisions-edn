@@ -34,3 +34,8 @@ Modifier `worker.js` (le HTML est une chaîne JSON sur la ligne `const HTML = ..
 - Zone de texte libre « Commentaire » à la fin de chaque journée, dans Jour (sous les créneaux) et dans Planning (sous la révision du soir). Même note aux deux endroits.
 - Stockée dans l'état du planning (`st.N = {'AAAA-MM-JJ': texte}`), donc synchronisée avec `/api/state`. Enregistrement automatique (0,8 s après la frappe, ou en quittant la zone). Conservée par Annuler, Régénérer et Réinitialiser.
 - Export Excel : ligne « 📝 » sous la révision du soir de chaque jour (blocs de 17 lignes par semaine).
+
+## Objectif tour 1
+- Tous les 1ers passages (tour 1) sont placés au plus tard à la date « Tous les tours 1 vus au plus tard le » (Réglages, `st.t1`, 31 août par défaut). Les 2ᵉ passages viennent ensuite (et avant seulement s'il reste de la place).
+- S'il manque des demi-journées, les fins de matière incomplètes (1-2 cours) sont regroupées par deux dans une demi-journée ; l'autre demi-journée du jour reprend l'une des deux matières (toujours 2 matières par jour).
+- Suivi : bandeau qui signale les cours non vus dont le 1er passage tombe après la date.
